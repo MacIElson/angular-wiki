@@ -1,0 +1,37 @@
+<md-toolbar class="md-medium-tall" layout="row">
+    <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()">
+        <md-icon md-font-set="material-icons">menu</md-icon>
+    </md-button>
+    <h3>Angular Material Starter</h3>
+    <md-button ng-click="newArticle(); editModeEdit=true">
+        New Page
+    </md-button>
+</md-toolbar>
+<md-content id="mainView" layout="row" flex>
+    <div layout="column">
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-4dp" layout="column">
+            <md-input-container id="searchBar">
+                <input ng-model="searchFilter" type="text" placeholder="Enter Search">
+            </md-input-container>
+            <md-list>
+                <md-list-item ng-repeat="u in ul.articles| filter:searchFilter">
+                    <md-button ng-click="editModeEdit=false; ul.selectArticle(u); ul.toggleList()" ng-class="{'selected' : u === ul.selected }">
+                        {{u.title}}
+                    </md-button>
+                </md-list-item>
+            </md-list>
+            <md-subheader>Management</md-subheader>
+        </md-sidenav>
+    </div>
+    <md-content layout="column" flex id="content" style="overflow: scroll;">
+        <p ng-show="editModeEdit">You are now editing this page</p>
+        <h1 editable-text="ul.selected.title" edit-mode="editModeEdit" placeholder="Enter Title" ng-class='{"dottedTextEntry":editModeEdit}'></h1>
+        <p editable-text-textarea="ul.selected.introText" edit-mode="editModeEdit" placeholder="Enter Article Text" ng-class='{"dottedTextEntry":editModeEdit}'></p>
+        <md-button class="share" md-no-ink ng-click="editModeEdit=true" ng-hide="editModeEdit">
+            <md-icon md-font-set="material-icons">edit</md-icon>
+        </md-button>
+        <md-button class="share" md-no-ink ng-click="editModeEdit=false; saveCurrentArticle()" ng-show="editModeEdit">
+            <md-icon md-font-set="material-icons">save</md-icon>
+        </md-button>
+    </md-content>
+</md-content>
