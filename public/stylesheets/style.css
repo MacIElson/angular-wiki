@@ -9,10 +9,10 @@ html, body {
 }
 
 .dottedTextEntry {border:1px dashed #ccc}
-
-md-sidenav {}
-/*#mainView { height: 100%;}*/
+md-sidenav {height: 100vh;}
+#content { overflow: auto;}
 #searchBar {margin-bottom: -18px;}
+
 /* Toolbar area */
 
 .menu {

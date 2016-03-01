@@ -1,3 +1,5 @@
+// This is where I define the behavior for routes
+
 var express = require('express');
 var async = require('async');
 var path = require('path');
@@ -12,12 +14,10 @@ var homeGET = function(req, res) {
 
 var articlesGET = function(req, res) {
 	Article.find(function(err, articles) {
-
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
 
-        res.json(articles); // return all todos in JSON format
+        res.json(articles);
     });
 }
 
@@ -35,7 +35,6 @@ var editArticlePOST = function(req, res) {
 
 var newArticlePOST = function(req, res) {
     console.log(req.body)
-    // create a todo, information comes from AJAX request from Angular
     Article.create({
         title : req.body.title,
         introText: req.body.introText
@@ -46,8 +45,6 @@ var newArticlePOST = function(req, res) {
     });
 
 }
-
-
 
 module.exports.home = homeGET;
 module.exports.articles = articlesGET;

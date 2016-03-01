@@ -1,5 +1,6 @@
 /**
  * Created by Gabriel_Grinberg on 6/13/14.
+ * Modified by Mac-I crowell on 3/1/16 for fixing 2 way binding
  */
 
 
@@ -10,9 +11,6 @@
 
 })();
 
-/**
- * Created by Gabriel Grinberg on 6/13/14.
- */
 
 (function () {
   'use strict';
@@ -75,12 +73,11 @@
           });
 
           scope.$watch('editMode', function (val) {
+            console.log('editMode: '+val)
             scope.isEditing = !!val;
           });
 
           scope.$watch('editableText', function (newVal) {
-            console.log("newVal")
-            console.log(newVal)
             lastValue = newVal;
             scope.editingValue = newVal;
           });
@@ -89,9 +86,6 @@
     }]);
 })();
 
-/**
- * Created by Gabriel_Grinberg on 6/29/14.
- */
 'use strict';
 (function () {
     angular.module('gg.editableText')

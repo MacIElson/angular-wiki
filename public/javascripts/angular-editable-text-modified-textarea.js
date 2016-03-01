@@ -1,5 +1,6 @@
 /**
  * Created by Gabriel_Grinberg on 6/13/14.
+ * Modified by Mac-I crowell on 3/1/16 for textarea and fixing 2 way binding
  */
 
 
@@ -9,10 +10,6 @@
 
 
 })();
-
-/**
- * Created by Gabriel Grinberg on 6/13/14.
- */
 
 (function() {
 	'use strict';
@@ -78,8 +75,6 @@
 					});
 
 					scope.$watch('editableTextTextarea', function(newVal) {
-						console.log("newVal")
-						input[0].style.height = "300px";
 						input[0].style.height = Math.max(input[0].scrollHeight, 300) + "px";
 						lastValue = newVal;
 						scope.editingValue = newVal;
@@ -89,9 +84,6 @@
 		}]);
 })();
 
-/**
- * Created by Gabriel_Grinberg on 6/29/14.
- */
 'use strict';
 (function() {
 	angular.module('gg.editableTextTextarea')

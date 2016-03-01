@@ -33,18 +33,6 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
-// app.use(express.static(path.join(__dirname, "node_modules")));
-
-// var sessionSecret = process.env.SESSION_SECRET || 'this is not a secret ;)';
-// app.use(session({ secret: sessionSecret,
-//   resave: false,
-//   saveUninitialized: false }));
-
-//setup passport
-// require('./config/passportConfig')(passport);
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(flash());
 
 app.get('/article/:articleId', indexRoute.home);
 app.get('/', indexRoute.home);

@@ -1,3 +1,5 @@
+<!-- This html isinjected into the main page by $routeProvider, it is the only html template used -->
+
 <md-toolbar class="md-medium-tall" layout="row">
     <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()">
         <md-icon md-font-set="material-icons">menu</md-icon>
@@ -20,14 +22,12 @@
                     </md-button>
                 </md-list-item>
             </md-list>
-            <md-subheader>Management</md-subheader>
         </md-sidenav>
     </div>
-    <md-content layout="column" flex id="content" style="overflow: scroll;">
-        <p ng-show="editModeEdit">You are now editing this page</p>
+    <md-content layout="column" flex id="content">
         <h1 editable-text="ul.selected.title" edit-mode="editModeEdit" placeholder="Enter Title" ng-class='{"dottedTextEntry":editModeEdit}'></h1>
         <p editable-text-textarea="ul.selected.introText" edit-mode="editModeEdit" placeholder="Enter Article Text" ng-class='{"dottedTextEntry":editModeEdit}'></p>
-        <md-button class="share" md-no-ink ng-click="editModeEdit=true" ng-hide="editModeEdit">
+        <md-button class="share" md-no-ink ng-click="editModeEdit=true; " ng-hide="editModeEdit">
             <md-icon md-font-set="material-icons">edit</md-icon>
         </md-button>
         <md-button class="share" md-no-ink ng-click="editModeEdit=false; saveCurrentArticle()" ng-show="editModeEdit">
