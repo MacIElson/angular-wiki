@@ -6,9 +6,6 @@ var express = require('express');
 var indexRoute = require('./routes/index');
 var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
-var session = require('express-session');
-var passport = require('passport');
-var flash    = require('connect-flash');
 
 var app = express();
 
