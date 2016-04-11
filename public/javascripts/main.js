@@ -2,12 +2,16 @@
 The main angular file, it controls everything 
 */
 
+// Great documentation and structure.
+
 var myApp = angular.module('angular-wiki-article', ['ngRoute', 'ngMaterial', 'gg.editableText', 'gg.editableTextTextarea'])
 	.controller('ArticleController', ['ArticleService', '$scope', '$mdSidenav', '$routeParams', '$location', ArticleController])
 
 /*
 Uses $routeProvider to inject the appropriate template url and set the appropriate controllwer. 
 */
+
+// Thank youu I was looking for someone to use routeProvider
 myApp.config(
 	function($routeProvider, $locationProvider) {
 		$routeProvider.
