@@ -1,6 +1,7 @@
 /**
  * Created by Gabriel_Grinberg on 6/13/14.
  * Modified by Mac-I crowell on 3/1/16 for fixing 2 way binding
+ * I can't tell at a glance what you changed -- happy to discuss further if you have specific questions, though!
  */
 
 

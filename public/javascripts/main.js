@@ -1,12 +1,12 @@
 /*
-The main angular file, it controls everything 
+The main angular file, it controls everything
 */
 
 var myApp = angular.module('angular-wiki-article', ['ngRoute', 'ngMaterial', 'gg.editableText', 'gg.editableTextTextarea'])
 	.controller('ArticleController', ['ArticleService', '$scope', '$mdSidenav', '$routeParams', '$location', ArticleController])
 
 /*
-Uses $routeProvider to inject the appropriate template url and set the appropriate controllwer. 
+Uses $routeProvider to inject the appropriate template url and set the appropriate controllwer.
 */
 myApp.config(
 	function($routeProvider, $locationProvider) {
@@ -42,6 +42,10 @@ myApp.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $l
 
 
 myApp.service('ArticleService', function($http) {
+	// Nice modularization!
+	// I've usually seen factories used for this purpose instead of services --
+	// they're almost identical to services, but a little more flexible.
+	// Here's an explanation I like: http://weblogs.asp.net/dwahlin/using-an-angularjs-factory-to-interact-with-a-restful-service
 	/*
  	This function loads all the articles
 	*/
@@ -141,6 +145,10 @@ function ArticleController(ArticleService, $scope, $mdSidenav, $routeParams, $lo
 	// *********************************
 	// Internal methods
 	// *********************************
+
+	// why are these private? Looks to me like you're making them public
+	// (though via the article, not via the scope) with, e.g., `self.toggleList = toggleArticlesList;`
+	// Is there a subtlety I'm missing? (quite possible)
 
 	/**
 	 * Hide or Show the 'left' sideNav area
