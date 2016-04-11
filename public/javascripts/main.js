@@ -2,7 +2,9 @@
 The main angular file, it controls everything 
 */
 
-// Great documentation and structure.
+// Great documentation and structure. Please consider using a subdirectory views in public that acts as a means of rending your
+// ng-view under your np-app in your index.html - That way you are breaking down your index.html instead of it being a huge
+// html file.
 
 var myApp = angular.module('angular-wiki-article', ['ngRoute', 'ngMaterial', 'gg.editableText', 'gg.editableTextTextarea'])
 	.controller('ArticleController', ['ArticleService', '$scope', '$mdSidenav', '$routeParams', '$location', ArticleController])
